@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1586276792 source:c:\users\toshiba\documents\programacion\c++\libreria_string\main.cpp
+	<iostream>
+	<string.h>
+	<sstream>
+	<fstream>
+	<time.h>
+	"ahorcado.h"
+
+1586276844 source:c:\users\toshiba\documents\programacion\c++\libreria_string\ahorcado.cpp
+	"ahorcado.h"
+	<fstream>
+	<iostream>
+	<string>
+	<time.h>
+
+1586276196 c:\users\toshiba\documents\programacion\c++\libreria_string\ahorcado.h
+	<string>
+
