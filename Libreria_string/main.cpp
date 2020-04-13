@@ -67,9 +67,9 @@ int main()
     cout << id <<endl;;
 */
     ///18.12: El ahorcado
-
+/*
     ahorcado a;
-
+*/
     ///18.19: Mitad de un string
 /*
     string cadena2;
