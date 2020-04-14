@@ -2,8 +2,8 @@
 
 Cesar::Cesar()
 {
-   alfabeto="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,.";
-   clave=7;
+   alfabeto = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,.";
+   clave = 7;
 }
 
 string Cesar::cifrado(string mensaje){
