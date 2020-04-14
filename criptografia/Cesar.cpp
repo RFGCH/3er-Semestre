@@ -2,32 +2,31 @@
 
 Cesar::Cesar()
 {
-   alfabeto="abcdefghijklmnopqrstuvxyz";
-   clave=26;
+   alfabeto="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,.";
+   clave=7;
 }
 
 string Cesar::cifrado(string mensaje){
 
     int aux, pos;
-    for(int i=0;i<mensaje.size();i++){
+    int tam = mensaje.size();
+    for(int i=0;i<tam;i++){
         pos = alfabeto.find(mensaje[i]);
-        if(pos!=string::npos){
-        aux = (pos+clave)%alfabeto.size();
+        aux = pos+clave;
+        if(aux>alfabeto.size())aux%=tam;
         mensaje[i]=alfabeto[aux];
-        }
     }
     return mensaje;
 }
 string Cesar::descifrar(string mensaje){
 
     int aux, pos;
-    for(int i=0;i<mensaje.size();i++){
+    int tam = mensaje.size();
+    for(int i=0;i<tam;i++){
         pos = alfabeto.find(mensaje[i]);
-        if(pos!=string::npos){
         aux = pos-clave;
-        while(aux<0)aux+=alfabeto.size();
+        while(aux<0)aux+=tam;
         mensaje[i]=alfabeto[aux];
-        }
     }
     return mensaje;
 
