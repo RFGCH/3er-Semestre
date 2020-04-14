@@ -14,7 +14,7 @@ string Cesar::cifrado(string mensaje){
     for(int i=0;i<tam;i++){
         pos = alfabeto.find(mensaje[i]);
         aux = pos+clave;
-        if(aux>abc)aux%=tam;
+        while(aux>=abc)aux-=abc;
         mensaje[i]=alfabeto[aux];
     }
     return mensaje;
@@ -23,12 +23,12 @@ string Cesar::descifrar(string mensaje){
 
     int aux, pos;
     int tam = mensaje.size();
+    int abc = alfabeto.size();
     for(int i=0;i<tam;i++){
         pos = alfabeto.find(mensaje[i]);
         aux = pos-clave;
-        if(aux<0)aux%=tam;
+        while(aux<0)aux+=abc;
         mensaje[i]=alfabeto[aux];
     }
     return mensaje;
-
 }
