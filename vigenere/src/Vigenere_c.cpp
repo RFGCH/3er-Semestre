@@ -2,7 +2,7 @@
 #include <iostream>
 Vigenere_c::Vigenere_c()
 {
-    alfabeto =  "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,.";
+    alfabeto =  "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
     clave = "PERO CASI";
 }
 string Vigenere_c::cifrado(string mensaje){
