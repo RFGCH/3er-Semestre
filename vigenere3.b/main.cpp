@@ -11,8 +11,8 @@ int main()
     string mensaje;
     getline(cin,mensaje);
 
-    string mensaje_cifrado = emisor.cifrado(mensaje);
-    string mensaje_desifrado = receptor.descifrar(mensaje_cifrado);
+    string mensaje_cifrado = emisor.cifrado(mensaje,"ASCII");
+    string mensaje_desifrado = receptor.descifrar(mensaje_cifrado,"ASCII");
     cout << mensaje_cifrado << endl;
     cout << mensaje_desifrado;
     return 0;

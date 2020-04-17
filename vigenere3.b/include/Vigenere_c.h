@@ -10,11 +10,12 @@ public:
 
     Vigenere_c();
 
-    string cifrado(string);
-    string descifrar(string);
+    string cifrado(string, string);
+    string descifrar(string, string);
 
-    string alfabeto;
-
+    string alfabeto_NUM;
+    string alfabeto_ASCII;
+    string alfabeto_HEX;
 
 private:
 

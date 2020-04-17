@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1587162932 source:c:\users\rubén felix\documents\3er-semestre\vigenere3.b\main.cpp
+	<iostream>
+	"Vigenere_c.h"
+
+1587161557 c:\users\rubén felix\documents\3er-semestre\vigenere3.b\include\vigenere_c.h
+	<string>
+
+1587162912 source:c:\users\rubén felix\documents\3er-semestre\vigenere3.b\src\vigenere_c.cpp
+	"Vigenere_c.h"
+	<iostream>
+

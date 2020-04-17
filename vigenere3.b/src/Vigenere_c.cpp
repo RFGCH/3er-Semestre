@@ -2,11 +2,23 @@
 #include <iostream>
 Vigenere_c::Vigenere_c()
 {
-    alfabeto = "abcdefghijklmnopqrstuvwxyz(espacio)ABCDEFGHIJKLMNOPQRSTUVWXYZ,."
+    alfabeto_NUM = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,.";
+
+    for(int i=0;i<256;i++)
+    alfabeto_ASCII += char(i);
+
+    for(int i=0x0;i<0x7f;i++)
+    alfabeto_HEX += char(i);
+
     clave = "PERO CASI";
 }
-string Vigenere_c::cifrado(string mensaje,string
-                           {
+string Vigenere_c::cifrado(string mensaje,string alfabeto){
+
+    if(alfabeto=="NUM")
+        alfabeto=alfabeto_NUM;
+    else if(alfabeto=="HEX")
+        alfabeto=alfabeto_HEX;
+    else alfabeto=alfabeto_ASCII;
 
     int aux, pos1, pos2;
     int iterador = 0;
@@ -29,7 +41,13 @@ string Vigenere_c::cifrado(string mensaje,string
     return mensaje;
 
 }
-string Vigenere_c::descifrar(string mensaje){
+string Vigenere_c::descifrar(string mensaje, string alfabeto){
+
+    if(alfabeto=="NUM")
+        alfabeto=alfabeto_NUM;
+    else if(alfabeto=="HEX")
+        alfabeto=alfabeto_HEX;
+    else alfabeto=alfabeto_ASCII;
 
     int aux, pos1,pos2;
     int iterador = 0;
