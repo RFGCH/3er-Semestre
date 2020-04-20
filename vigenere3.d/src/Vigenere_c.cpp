@@ -2,8 +2,8 @@
 #include <iostream>
 Vigenere_c::Vigenere_c()
 {
-    alfabeto =  "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-    clave = "H";
+    alfabeto =  "ABCDEFGHIJKLMNOPQRSTUVWXYZ,. ";
+    clave = "HOLA";
 }
 string Vigenere_c::cifrado(string mensaje){
 
@@ -17,7 +17,7 @@ string Vigenere_c::cifrado(string mensaje){
 
         if(iterador>tam_codigo)iterador=0;
         pos1 = alfabeto.find(clave[iterador]);
-
+        iterador++;
         pos2 = alfabeto.find(mensaje[i]) + pos1;
         while(pos2>=tam_abc)
 
