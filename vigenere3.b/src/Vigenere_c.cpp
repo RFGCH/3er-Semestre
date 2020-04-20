@@ -10,7 +10,7 @@ Vigenere_c::Vigenere_c()
     for(int i=0x0;i<0x7f;i++)
     alfabeto_HEX += char(i);
 
-    clave = "PERO CASI";
+    clave = "HOLA";
 }
 string Vigenere_c::cifrado(string mensaje,string alfabeto){
 
@@ -24,7 +24,7 @@ string Vigenere_c::cifrado(string mensaje,string alfabeto){
     int iterador = 0;
     int tam_mens = mensaje.size();
     int tam_abc = alfabeto.size();
-    int tam_codigo = clave.size();
+    int tam_codigo = clave.size()-1;
 
     for(int i=0;i<tam_mens;i++){
 
@@ -54,7 +54,7 @@ string Vigenere_c::descifrar(string mensaje, string alfabeto){
     int iterador = 0;
     int tam_mens = mensaje.size();
     int tam_abc = alfabeto.size();
-    int tam_codigo = clave.size();
+    int tam_codigo = clave.size()-1;
 
     for(int i=0;i<tam_mens;i++){
 

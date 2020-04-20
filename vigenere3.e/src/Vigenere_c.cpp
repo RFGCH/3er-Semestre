@@ -11,7 +11,7 @@ string Vigenere_c::cifrado(string mensaje){
     int iterador = 0;
     int tam_mens = mensaje.size();
     int tam_abc = alfabeto.size();
-    int tam_codigo = clave.size();
+    int tam_codigo = clave.size()-1;
 
     for(int i=0;i<tam_mens;i++){
         if(iterador>tam_codigo)iterador=0;
@@ -41,7 +41,7 @@ string Vigenere_c::descifrar(string mensaje){
     int iterador = 0;
     int tam_mens = mensaje.size();
     int tam_abc = alfabeto.size();
-    int tam_codigo = clave.size();
+    int tam_codigo = clave.size()-1;
 
     for(int i=tam_mens-4;i<tam_mens;i++)
         while(mensaje[i]=='W'){

@@ -2,7 +2,7 @@
 #include <iostream>
 Vigenere_c::Vigenere_c()
 {
-    alfabeto =  "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNÑOPQRSTUVWXYZ,.";
+    alfabeto =  "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,.";
     clave = "LHC";
 }
 string Vigenere_c::cifrado(string mensaje){
@@ -11,7 +11,7 @@ string Vigenere_c::cifrado(string mensaje){
     int iterador = 0;
     int tam_mens = mensaje.size();
     int tam_abc = alfabeto.size();
-    int tam_codigo = clave.size();
+    int tam_codigo = clave.size()-1;
     string clave_aux = "AUTOCLAVE";
     int iterador_aux = 0;
     int tam_codigo_aux = clave_aux.size();
@@ -44,7 +44,7 @@ string Vigenere_c::descifrar(string mensaje){
     int iterador = 0;
     int tam_mens = mensaje.size();
     int tam_abc = alfabeto.size();
-    int tam_codigo = clave.size();
+    int tam_codigo = clave.size()-1;
     string clave_aux = "AUTOCLAVE";
     int iterador_aux = 0;
     int tam_codigo_aux = clave_aux.size();

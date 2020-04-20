@@ -14,36 +14,40 @@ Kasiski_c::Kasiski_c(string mensaje)
 string Kasiski_c::bloques(){
 
     string bloques[length];
-    for(int i=0;i<length;i++)
-        for(int j=i;j<tam_mensaje;j+=length)
+    for(int i=0;i<length;i++){
+        for(int j=i;j<tam_mensaje;j+=length){
             bloques[i]+=mensaje[j];
+        }
+    }
 
-    int a;
-    int b;
+
+    int a, b, pos;
     string string_1="";
     string final_1="";
-    int pos;
+
     for(int i=0;i<length;i++){
         b=0;
         int tam = bloques[i].size();
-        cout << bloques[i] << endl;
-        for(int j=0;j<tam;j++){
-            a=1;
-            pos=bloques[i].find(bloques[i][j]);
+        cout << "Cadena: " << bloques[i]<< ". "  <<  endl;
+        for(int j=0;j<tam;j++){//Encontrar la ocuerrencia de la palabra en el bloque a fuerza bruta
+            a=0;
+            char aux_char=bloques[i][j];
+            pos=bloques[i].find(aux_char);
             for(;pos!=string::npos;a++){
-                bloques[i].replace(pos,1,"");
-                tam--;
-                pos=bloques[i].find(bloques[i][j],pos+1);
+                pos=bloques[i].find(aux_char,pos+1);
             }
-            cout << bloques[i][j] << "  " << a << " " << j << " Caja: "<< i << endl;
+
+            cout << "Letra: " << bloques [i][j] << "  Veces Repetida: " << a << endl;
             if(a>b){
                 string_1=bloques[i][j];
                 b=a;
             }
+
         }
         final_1+=string_1;
     }
     cout << "1" << final_1 << endl;
+    cout << length  << endl;
 
     return "falta";
 }
@@ -59,7 +63,7 @@ int Kasiski_c::longitud(){
         aux_1=mcd(sub_cadena[i+1],sub_cadena[i+2]);
         if(aux_1>aux)lengh=aux;
     }
-    return lengh-1;
+    return lengh;
 }
 void Kasiski_c::iguales(int Tam,int inicio){
 
