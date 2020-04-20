@@ -3,7 +3,7 @@
 Vigenere_c::Vigenere_c()
 {
     alfabeto =  "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-    clave = "PERO CASI";
+    clave = "LHC";
 }
 string Vigenere_c::cifrado(string mensaje){
 
@@ -16,6 +16,7 @@ string Vigenere_c::cifrado(string mensaje){
     for(int i=0;i<tam_mens;i++){
 
         if(iterador>tam_codigo)iterador=0;
+        iterador++;
         pos1 = alfabeto.find(clave[iterador]);
 
         pos2 = alfabeto.find(mensaje[i]) + pos1;
@@ -39,6 +40,7 @@ string Vigenere_c::descifrar(string mensaje){
     for(int i=0;i<tam_mens;i++){
 
         if(iterador>tam_codigo)iterador=0;
+        iterador++;
         pos1 = alfabeto.find(clave[iterador]);
 
         pos2 = alfabeto.find(mensaje[i])-pos1;

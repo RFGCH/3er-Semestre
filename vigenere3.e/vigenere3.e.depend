@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1587340622 source:c:\users\rubén felix\documents\3er-semestre\vigenere3.e\main.cpp
+	<iostream>
+	<Vigenere_c.h>
+
+1587343561 source:c:\users\rubén felix\documents\3er-semestre\vigenere3.e\src\vigenere_c.cpp
+	"Vigenere_c.h"
+	<iostream>
+
+1586849664 c:\users\rubén felix\documents\3er-semestre\vigenere3.e\include\vigenere_c.h
+	<string>
+
+1586818778 source:c:\users\rubén felix\documents\3er-semestre\libreria_string\main.cpp
+	<iostream>
+	<string.h>
+	<sstream>
+	<fstream>
+	<time.h>
+	"ahorcado.h"
+
+1586315590 c:\users\rubén felix\documents\3er-semestre\libreria_string\ahorcado.h
+	<string>
+

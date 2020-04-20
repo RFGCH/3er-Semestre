@@ -30,6 +30,7 @@ string Vigenere_c::cifrado(string mensaje,string alfabeto){
 
         if(iterador>tam_codigo)iterador=0;
         pos1 = alfabeto.find(clave[iterador]);
+        iterador++;
 
         pos2 = alfabeto.find(mensaje[i]) + pos1;
         while(pos2>=tam_abc)
@@ -59,6 +60,7 @@ string Vigenere_c::descifrar(string mensaje, string alfabeto){
 
         if(iterador>tam_codigo)iterador=0;
         pos1 = alfabeto.find(clave[iterador]);
+        iterador++;
 
         pos2 = alfabeto.find(mensaje[i])-pos1;
 
