@@ -46,10 +46,10 @@ string Kasiski_c::bloques(){
         }
         final_1+=string_1;
     }
-    cout << "1" << final_1 << endl;
-    cout << length  << endl;
+    cout << "Longitud: " << length  << endl;
+    cout << "Clave: " << final_1 << endl;
 
-    return "falta";
+    return final_1;
 }
 
 int Kasiski_c::longitud(){

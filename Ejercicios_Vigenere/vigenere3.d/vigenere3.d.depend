@@ -29,3 +29,22 @@
 1587364035 c:\users\rubén felix\documents\3er-semestre\vigenere3.d\include\kasiski_c.h
 	<string>
 
+1587394375 source:c:\users\rubén felix\documents\3er-semestre\ejercicios_vigenere\vigenere3.d\main.cpp
+	<iostream>
+	<Vigenere_c.h>
+	<Kasiski_c.h>
+
+1587323290 c:\users\rubén felix\documents\3er-semestre\ejercicios_vigenere\vigenere3.d\include\vigenere_c.h
+	<string>
+
+1587364035 c:\users\rubén felix\documents\3er-semestre\ejercicios_vigenere\vigenere3.d\include\kasiski_c.h
+	<string>
+
+1587411243 source:c:\users\rubén felix\documents\3er-semestre\ejercicios_vigenere\vigenere3.d\src\kasiski_c.cpp
+	"Kasiski_c.h"
+	<iostream>
+
+1587420911 source:c:\users\rubén felix\documents\3er-semestre\ejercicios_vigenere\vigenere3.d\src\vigenere_c.cpp
+	"Vigenere_c.h"
+	<iostream>
+
