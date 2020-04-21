@@ -2,23 +2,14 @@
 #include <iostream>
 Vigenere_c::Vigenere_c()
 {
-    alfabeto_NUM = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,.";
+    alfabeto_NUM = "abcdefghijklmnopqrstuvwxyz -ABCDEFGHIJKLMNOPQRSTUVWXYZ,.0123456789";
 
-    for(int i=0;i<256;i++)
-    alfabeto_ASCII += char(i);
-
-    for(int i=0x0;i<0x7f;i++)
-    alfabeto_HEX += char(i);
-
-    clave = "HOLA";
+    clave = "Ruben Felix Guzman Chiroque 191-10-45131";
 }
 string Vigenere_c::cifrado(string mensaje,string alfabeto){
 
-    if(alfabeto=="NUM")
-        alfabeto=alfabeto_NUM;
-    else if(alfabeto=="HEX")
-        alfabeto=alfabeto_HEX;
-    else alfabeto=alfabeto_ASCII;
+
+    alfabeto=alfabeto_NUM;
 
     int aux, pos1, pos2;
     int iterador = 0;
