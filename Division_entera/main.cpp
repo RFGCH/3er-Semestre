@@ -34,11 +34,9 @@ public:
 int fun_mod(int a,int b){
 
     int i=0;
-    if(b<0)b=-b;
-    if(a<0){a=-a;i=1;}
+    if(a<0){a=-a;i=1;}//Se elimina la excepcion en b <=0; dado que no entra dento de la definicion de modulo
     int aux=b;
-    if(b!=0)
-        for(;b<=a;b+=aux);//Esto debo mejorar
+    for(;b<=a;b+=aux);//Esto debo mejorar
     if(i)return b-a;
     return a-b+aux;
 }
@@ -46,7 +44,6 @@ int fun_mod(int a,int b){
 int fun_mcd(int a, int b){
     if(b==0)return a;
     int r = fun_mod(a,b);
-    cout << r << endl;
     fun_mcd(b,r);
 }
 
