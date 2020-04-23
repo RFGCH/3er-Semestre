@@ -83,7 +83,8 @@ void Kasiski_c::iguales(int Tam,int inicio){
 }
 int Kasiski_c::fun_mod(int a,int b){
     int aux=b;
-    for(;b<=a;b+=aux){}
+    if(a>=0)
+    for(;b<=a;b+=aux);
     b-=aux;
     return a-b;
 }
@@ -91,5 +92,12 @@ int Kasiski_c::mcd(int a, int b){
     if(b==0)return a;
     int r = fun_mod(a,b);
     mcd(b,r);
+    int r=b;
+    while(r==0){
+
+
+
+    }
+
 }
 
