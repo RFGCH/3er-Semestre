@@ -78,10 +78,10 @@ int main()
     unsigned t0, t1;
 
     t0=clock();
-    cout <<  fun_mod(260,152);
-    for(int i=0;i<20000000;i++){
-        fun_mod(260,152);//Aumenta en un 10-8% la velocidad sin la evaluacion de -a;
-    }
+    cout <<  fun_mod(260,10);
+    for(int i=0;i<2000000;i++){
+        fun_mod(260,10);//Aumenta en un 10-8% la velocidad sin la evaluacion de -a;y evalueando a b aumenta un 20%;
+    }//Solo es mejor cuando a >= b*12;si se distancian má
 
     t1=clock();
 
@@ -89,9 +89,9 @@ int main()
     cout << "Execution Time: " << time << endl;
 
     t0=clock();
-    cout << 260-152*int(260/152);
-    for(int i=0;i<200000000;i++){
-        260-152*int(260/152);//Cream sin llamar a la funcion;
+    cout << crem(260,10);
+    for(int i=0;i<20000000;i++){
+        crem(260,10);//Cream sin llamar a la funcion;
     }
 
     t1 = clock();
@@ -100,9 +100,9 @@ int main()
     cout << "Execution Time: " << time << endl;
 
     t0=clock();
-    cout << 260%152;
-    for(int i=0;i<200000000;i++){
-        260%152;//Modulo directo
+    cout << 260%10;
+    for(int i=0;i<20000000;i++){
+        260%10;//Modulo directo
     }
 
     t1 = clock();
