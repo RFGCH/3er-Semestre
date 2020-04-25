@@ -10,15 +10,16 @@
 	"Vigenere_c.h"
 	<iostream>
 
-1587429967 source:c:\users\rubén felix\documents\3er-semestre\ejercicios_vigenere\vigenere3.b\main.cpp
+1587836059 source:c:\users\rubén felix\documents\3er-semestre\ejercicios_vigenere\vigenere3.b\main.cpp
 	<iostream>
+	<locale.h>
 	"Vigenere_c.h"
-	<fstream>
 
 1587161557 c:\users\rubén felix\documents\3er-semestre\ejercicios_vigenere\vigenere3.b\include\vigenere_c.h
 	<string>
 
-1587431794 source:c:\users\rubén felix\documents\3er-semestre\ejercicios_vigenere\vigenere3.b\src\vigenere_c.cpp
+1587836167 source:c:\users\rubén felix\documents\3er-semestre\ejercicios_vigenere\vigenere3.b\src\vigenere_c.cpp
 	"Vigenere_c.h"
 	<iostream>
+	<locale.h>
 

@@ -1,15 +1,20 @@
 #include "Vigenere_c.h"
 #include <iostream>
+#include <locale.h>
 Vigenere_c::Vigenere_c()
 {
+    setlocale(LC_CTYPE, "Spanish");
     alfabeto_NUM = "abcdefghijklmnopqrstuvwxyz -ABCDEFGHIJKLMNOPQRSTUVWXYZ,.0123456789";
 
-    clave = "Ruben Felix Guzman Chiroque 191-10-45131";
+    alfabeto_ASCII = "abcdefghijklmnopqrstuvwxyzñ-ABCDEFGHIJKLMNOPQRSTUVWXYZ,.0123456789";
+
+    clave = "bb";
 }
 string Vigenere_c::cifrado(string mensaje,string alfabeto){
 
 
-    alfabeto=alfabeto_NUM;
+    setlocale(LC_CTYPE, "Spanish");
+    alfabeto=alfabeto_ASCII;
 
     int aux, pos1, pos2;
     int iterador = 0;
@@ -22,6 +27,7 @@ string Vigenere_c::cifrado(string mensaje,string alfabeto){
         if(iterador>tam_codigo)iterador=0;
         pos1 = alfabeto.find(clave[iterador]);
         iterador++;
+        cout << alfabeto.find(mensaje[i]) << endl;
 
         pos2 = alfabeto.find(mensaje[i]) + pos1;
         while(pos2>=tam_abc)
@@ -35,11 +41,9 @@ string Vigenere_c::cifrado(string mensaje,string alfabeto){
 }
 string Vigenere_c::descifrar(string mensaje, string alfabeto){
 
-    if(alfabeto=="NUM")
-        alfabeto=alfabeto_NUM;
-    else if(alfabeto=="HEX")
-        alfabeto=alfabeto_HEX;
-    else alfabeto=alfabeto_ASCII;
+
+    setlocale(LC_CTYPE, "Spanish");
+    alfabeto=alfabeto_ASCII;
 
     int aux, pos1,pos2;
     int iterador = 0;

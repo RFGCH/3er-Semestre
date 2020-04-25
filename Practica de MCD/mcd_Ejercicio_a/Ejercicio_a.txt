@@ -1,0 +1,57 @@
+Algoritmo 1:
+	 a     b     r 	
+        ---Vuelta 1----
+Paso 1  412   260    -   
+Paso 2  412   260   152   
+Paso 3  412   260   152  #r != 0;
+Paso 4  260   152   152
+        ---Vuelta 2---- #Paso 5
+Paso 2  260   152   108   
+Paso 3  260   152   108  #r != 0;
+Paso 4  152   108   108
+        ---Vuelta 3---- #Paso 5
+Paso 2  152   108   44 
+Paso 3  152   108   44   #r != 0;
+Paso 4  108   44    44
+        ---Vuelta 4---- #Paso 5
+Paso 2  108   44    20  
+Paso 3  108   44    20   #r != 0;
+Paso 4  44    20    20
+        ---Vuelta 5---- #Paso 5
+Paso 2  44    20    4
+Paso 3  44    20    4    #r != 0;
+Paso 4  20    4     4
+        ---Vuelta 6---- #Paso 5
+Paso 2  20    4     0
+Paso 3  20    4     0    #r == 0; Fin = True;
+     --Fin del algoritmo--
+
+Algoritmo 2:
+	 a     b     r 	
+        ---Vuelta 1----
+Paso 1  412   260    -   
+Paso 2  412   260   152   
+Paso 3  412   260   152  #r != 0;
+Paso 4  412   260   108  #r >= 130; Verdadero -> r=b-r;
+Paso 5  260   108   108
+        ---Vuelta 2---- #Paso 5
+Paso 2  260   108   44   
+Paso 3  260   108   44   #r != 0;
+Paso 4  260   108   44   #r >= 54; Falso
+Paso 5  108   44    44
+        ---Vuelta 3---- #Paso 5
+Paso 2  108   44    20
+Paso 3  108   44    20   #r != 0;
+Paso 4  108   44    20   #r >= 22; Falso
+Paso 5  44    20    20
+        ---Vuelta 4---- #Paso 5
+Paso 2  44    20    4
+Paso 3  44    20    4   #r != 0;
+Paso 4  44    20    4   #r >= 10; Falso
+Paso 5  20    4     4
+        ---Vuelta 4---- #Paso 5
+Paso 2  20    4     0
+Paso 3  20    4     0   #r != 0; Fin = True;
+     --Fin del algoritmo--
+
+
