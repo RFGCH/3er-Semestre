@@ -89,15 +89,15 @@ int Kasiski_c::fun_mod(int a,int b){
     return a-b;
 }
 int Kasiski_c::mcd(int a, int b){
-    if(b==0)return a;
-    int r = fun_mod(a,b);
-    mcd(b,r);
-    int r=b;
-    while(r==0){
 
+    int r;
+    do{
+        r=fun_mod(a,b);
+        a = b;
+        b = r;
+    }while(r!=0);
 
-
-    }
+    return a;
 
 }
 
