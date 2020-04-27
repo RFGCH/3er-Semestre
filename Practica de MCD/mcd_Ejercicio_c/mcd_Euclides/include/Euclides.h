@@ -9,8 +9,7 @@ class Euclides
 
         int Euclides_fun(int,int);
 
-        int cquo(int,int);
-        int crem(int,int);
+        int fun_mod(int,int);
 
 
     protected:
