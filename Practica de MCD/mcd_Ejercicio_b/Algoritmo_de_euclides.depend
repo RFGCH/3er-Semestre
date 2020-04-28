@@ -2,9 +2,14 @@
 1587603452 source:c:\users\rubén felix\documents\3er-semestre\algoritmo_de_euclides\main.cpp
 	<iostream>
 
-1588014219 source:c:\users\rubén felix\documents\3er-semestre\practica de mcd\mcd_ejercicio_b\main.cpp
+1588094165 source:c:\users\rubén felix\documents\3er-semestre\practica de mcd\mcd_ejercicio_b\main.cpp
 	<iostream>
 	<Algoritmos.h>
 
-1588016881 c:\users\rubén felix\documents\3er-semestre\practica de mcd\mcd_ejercicio_b\include\algoritmos.h
+1588094005 c:\users\rubén felix\documents\3er-semestre\practica de mcd\mcd_ejercicio_b\include\algoritmos.h
+
+1588094209 source:c:\users\rubén felix\documents\3er-semestre\practica de mcd\mcd_ejercicio_b\src\algoritmos.cpp
+	"Algoritmos.h"
+	<iostream>
+	<math.h>
 

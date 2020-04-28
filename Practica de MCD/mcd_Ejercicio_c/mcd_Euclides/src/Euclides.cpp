@@ -7,7 +7,6 @@ Euclides::Euclides()
 {}
 
 int Euclides::Euclides_fun(int a,int b){
-    int aux;
     int con=1;
     if(a==0)a=b;
     cout << "\n\tEuclides 1:\n" << endl;

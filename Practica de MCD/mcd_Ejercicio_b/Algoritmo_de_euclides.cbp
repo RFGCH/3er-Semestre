@@ -38,9 +38,6 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Algoritmos.cpp" />
 		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
 			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
