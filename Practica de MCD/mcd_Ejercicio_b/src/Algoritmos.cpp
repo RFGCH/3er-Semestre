@@ -16,13 +16,13 @@ int Algoritmos::algoritmo1(int a,int b){
         //cout << "\n        ---Vuelta "<<con<<"----" << endl;
         r=fun_mod(a,b);
         //cout << "Paso 2  " << a << "   " << b << "   " << r << endl;
-        //cout << "Paso 3  " << a << "   " << b << "   " << r << endl;
+        //cout << "Paso 3  " << a << "   " << b << "   " << r ;
         if(r==0){
-            //cout << "True;"<< endl;
+            //cout << "  True;"<< endl;
             return b;
         }
-        //cout << "False;" << endl;
-        a=b;b=r;
+        //cout << "  False;" << endl;
+        a=b;b=r;//Algoritmo de euclides;
         //cout << "Paso 4  " << a << "   " << b << "   " << r << endl;
         //con++;
     }while(r!=0);
@@ -45,29 +45,30 @@ int Algoritmos::algoritmo2(int a,int b){
         //cout << "False;" << endl;
         //cout << "Paso 4  " << a << "   " << b << "   " << r <<"    r>="<<b/2<<";";
         if(r>b/2){
-            r=b-r;
+            r=b-r;//Algoritmo de euclides y saca el menor resto
             //cout << "True;"<< endl;
         }
         else; //cout << "False;" << endl;
         a=b;b=r;
         //cout << "Paso 5  " << a << "   " << b << "   " << r << endl;
-        con++;
+        //con++;
     }while(r!=0);
 }
 int Algoritmos::algoritmo3(int a, int b){
     //cout << "Paso 1: "<<a<<"   "<<b<< "   si b es 0 return a;"<< endl;
     if(b==0)return a;
     //cout << "Paso 2: "<<a<<"   "<<b<< "   si b distinto de 0 return algoritmo3(b,fun_mod(a,b));"<< endl;
-    return algoritmo3(b,fun_mod(a,b));
+    return algoritmo3(b,fun_mod(a,b));//Algoritmo de euclides recursivo
 }
 int Algoritmos::algoritmo3_5(int a,int b){
     int aux;
-    cout << "\n\tAlgoritmo 3_5:\n" << endl;
-    cout << "	 a     b   \n" << endl;
-    cout << "Paso 1:  " << a <<"   " << b<< endl;
+    //cout << "\n\tAlgoritmo 3_5:\n" << endl;
+    //cout << "	 a     b   \n" << endl;
+    //cout << "Paso 1:  " << a <<"   " << b<< endl;
     while(b!=0){
         a=fun_mod(a,b);
-        cout <<"Paso 2:  "<< a << "   " << b << " a = fun_mod(a,b)"<<  endl;
+        //Algoritmo de euclides recursiva;
+        //cout <<"Paso 2:  "<< a << "   " << b << " a = fun_mod(a,b)"<<  endl;
         aux=a;
         a=b;
         b=aux;
@@ -105,42 +106,42 @@ int Algoritmos::algoritmo4(int a,int b){
 int Algoritmos::algoritmo5(int a,int b){
     int t;
     int g=1;
-    cout << "\n\tAlgoritmo 3_5:\n" << endl;
-    cout << "	 a     b   r\n" << endl;
+    //cout << "\n\tAlgoritmo 3_5:\n" << endl;
+    //cout << "	 a     b   r\n" << endl;
     while(fun_mod(a,2)==0&&fun_mod(b,2)==0){
         a/=2;
         b/=2;
         g=2*g;
-    cout << "Paso 1:  " << a <<"   " << b << "    - " << g << "   mientras a y b sean pares g^2" << endl;
+    //cout << "Paso 1:  " << a <<"   " << b << "    - " << g << "   mientras a y b sean pares g^2" << endl;
     }
     while(a!=0){
         while(fun_mod(a,2)==0){
-            cout << "Paso 2:  " << a <<"   " << b << "    -"<< "   mientras a par, a/=2;" << endl;
+            //cout << "Paso 2:  " << a <<"   " << b << "    -"<< "   mientras a par, a/=2;" << endl;
             a/=2;
         }
         while(fun_mod(b,2)==0){
-            cout << "Paso 3:  " << a <<"   " << b << "    -"<< "   mientras b par, a/=2;" << endl;
+            //cout << "Paso 3:  " << a <<"   " << b << "    -"<< "   mientras b par, a/=2;" << endl;
             b/=2;
         }
         t=fun_abs(a-b)/2;
-        cout << "Paso 4:  " << a <<"   " << b << "   "<< t << "   t = |a,b|/2;" << endl;
+        //cout << "Paso 4:  " << a <<"   " << b << "   "<< t << "   t = |a,b|/2;" << endl;
         if(a>=b)a=t;
         else b=t;
-        cout << "Paso 5:  " << a <<"   " << b << "   "<< t << "   mientras b par, a/=2;" << endl;
+        //cout << "Paso 5:  " << a <<"   " << b << "   "<< t << "   mientras b par, a/=2;" << endl;
     }
     return g*b;
 }
 int Algoritmos::algoritmo6(int a,int b){
-    cout << "\n\tAlgoritmo 3_5:\n" << endl;
-    cout << "	 a     b   \n" << endl;
-    cout << "Paso 1:  " << a <<"   " << b << "   mientras a y b sean diferentes:" << endl;
+    //cout << "\n\tAlgoritmo 3_5:\n" << endl;
+    //cout << "	 a     b   \n" << endl;
+    //cout << "Paso 1:  " << a <<"   " << b << "   mientras a y b sean diferentes:" << endl;
     while(a!=b)
         if(a>b) {
-            cout << "Paso 2:  " << a <<"   " << b << "   si a>b, a-=b;" << endl;
+            //cout << "Paso 2:  " << a <<"   " << b << "   si a>b, a-=b;" << endl;
             a-=b;
         }
         else {
-            cout << "Paso 2:  " << a <<"   " << b << "   si no, b-=a;" << endl;
+            //cout << "Paso 2:  " << a <<"   " << b << "   si no, b-=a;" << endl;
             b-=a;
         }
     return a;
