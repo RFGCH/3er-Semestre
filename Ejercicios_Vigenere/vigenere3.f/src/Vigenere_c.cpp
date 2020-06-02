@@ -6,7 +6,7 @@ Vigenere_c::Vigenere_c()
     clave = "LHC";
 }
 string Vigenere_c::cifrado(string mensaje){
-
+//autoclave
     int aux, pos1, pos2;
     int iterador = 0;
     int tam_mens = mensaje.size();

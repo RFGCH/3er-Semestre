@@ -133,7 +133,7 @@ int main()
 */
     ///Práctica: Clase String
     ///1.- De string a array char y viceversa:
-/*
+
     string cadenax;
     cout << "Ingresar una cadena(sin espacios): ";//Da errores cuando se ingresa un espacio " "
     getline(cin,cadenax);
@@ -150,7 +150,7 @@ int main()
     cadenaaux2 << aux1;
     string a = cadenaaux2.str();
     cout << a;
-*/
+
     ///2.- Diferencia entre capacity y size:
 /*
     La función capacity retorna el valor de capacidad de

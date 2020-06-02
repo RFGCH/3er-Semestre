@@ -1,21 +1,23 @@
 #ifndef ALGORITMOS_H
 #define ALGORITMOS_H
+#include <NTL/ZZ.h>
 
+using namespace NTL;
 
 class Algoritmos
 {
     public:
         Algoritmos();
-        int algoritmo1(int,int);
-        int algoritmo2(int,int);
-        int algoritmo3(int,int);
-        int algoritmo3_5(int,int);
-        int algoritmo4(int,int);
-        int algoritmo5(int,int);
-        int algoritmo6(int,int);
+        ZZ algoritmo1(ZZ,ZZ);
+        ZZ algoritmo2(ZZ,ZZ);
+        ZZ algoritmo3(ZZ,ZZ);
+        ZZ algoritmo3_5(ZZ,ZZ);
+        ZZ algoritmo4(ZZ,ZZ);
+        ZZ algoritmo5(ZZ,ZZ);
+        ZZ algoritmo6(ZZ,ZZ);
 
-        int fun_mod(int,int);
-        int fun_abs(int);
+        ZZ fun_mod(ZZ,ZZ);
+        ZZ fun_abs(ZZ);
 
 
     protected:

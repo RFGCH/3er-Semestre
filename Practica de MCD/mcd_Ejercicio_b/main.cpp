@@ -2,25 +2,33 @@
 #include <Algoritmos.h>
 #include <ctime>//Para las pruebas de tiempo
 #include <fstream>
+#include <NTL/ZZ.h>
 
 using namespace std;
+using namespace NTL;
 
 int main()
 {
     Algoritmos a;
+ /*
     unsigned t0, t1;
 
     double time;
     ofstream texto("Datos_alg_6.txt");
     float aux=0;
-    for(int i=0;i<20;i++){
+*/
+    ZZ num1;
+    num1 = conv<ZZ>("33");
+    ZZ num2;
+    num2 = conv<ZZ>("29");
+
+/*
+    for(int i=0;i<1;i++){
 
         t0=clock();
-
-        for(int i=0;i<1000000;i++)
-            a.algoritmo6(8,2);
-
-
+*/
+         cout << a.algoritmo1(num1,num2);
+/*
         t1=clock();
 
         time=(double(t1-t0)/CLOCKS_PER_SEC);
@@ -30,7 +38,7 @@ int main()
     }
     aux/=20;
     cout << aux;
-
+*/
 
     //cout << a.algoritmo2(412,260);
     //cout << a.algoritmo6(412,260);
