@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1591490763 source:c:\users\rubén felix\documents\3er-semestre\tareas\afín\main.cpp
+	<iostream>
+	<Afin.h>
+
+1591490177 c:\users\rubén felix\documents\3er-semestre\tareas\afín\include\cesar.h
+	<string>
+
+1591491741 source:c:\users\rubén felix\documents\3er-semestre\tareas\afín\src\afin.cpp
+	"Afin.h"
+
+1591491585 c:\users\rubén felix\documents\3er-semestre\tareas\afín\include\afin.h
+	<string>
+	<stdlib.h>
+	<time.h>
+	<mat.h>
+
+1591490209 source:c:\users\rubén felix\documents\3er-semestre\tareas\afín\src\cesar.cpp
+	"Cesar.h"
+
+1591491400 source:c:\users\rubén felix\documents\3er-semestre\tareas\afín\src\mat.cpp
+	"mat.h"
+
+1591491400 c:\users\rubén felix\documents\3er-semestre\tareas\afín\include\mat.h
+
