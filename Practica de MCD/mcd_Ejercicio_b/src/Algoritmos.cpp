@@ -10,23 +10,24 @@ Algoritmos::Algoritmos()
 
 ZZ Algoritmos::algoritmo1(ZZ a,ZZ b){
     ZZ r;
-    //int con=1;
-    //cout << "\n\tAlgoritmo 1:\n" << endl;
-    //cout << "	 a     b     r\n" << endl;
-    //cout << "Paso 1  " << a <<"   " << b << "    -"<< endl;
+    int con=1;
+    cout << "\n\tAlgoritmo 1:\n" << endl;
+    cout << "	 a     b     r\n" << endl;
+    cout << "Paso 1  " << a <<"   " << b << "    -"<< endl;
     do{
-        //cout << "\n        ---Vuelta "<<con<<"----" << endl;
+        cout << "\n        ---Vuelta "<<con<<"----" << endl;
         r=fun_mod(a,b);
-        //cout << "Paso 2  " << a << "   " << b << "   " << r << endl;
-        //cout << "Paso 3  " << a << "   " << b << "   " << r ;
+        cout << "Paso 2  " << a << "   " << b << "   " << r << endl;
+        cout << "Paso 3  " << a << "   " << b << "   " << r ;
+        cout << "  "  << a/b << endl;
         if(r==0){
-            //cout << "  True;"<< endl;
+            cout << "  True;"<< endl;
             return b;
         }
-        //cout << "  False;" << endl;
+        cout << "  False;" << endl;
         a=b;b=r;//Algoritmo de euclides;
-        //cout << "Paso 4  " << a << "   " << b << "   " << r << endl;
-        //con++;
+        cout << "Paso 4  " << a << "   " << b << "   " << r << endl;
+        con++;
     }while(r!=0);
 }
 ZZ Algoritmos::algoritmo2(ZZ a,ZZ b){
