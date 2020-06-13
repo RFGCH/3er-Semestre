@@ -1,11 +1,13 @@
 # depslib dependency file v1.0
-1591392826 source:c:\users\rubén felix\documents\3er-semestre\tareas\criba de eratóstenes\main.cpp
+1591566440 source:c:\users\rubén felix\documents\3er-semestre\tareas\criba de eratóstenes\main.cpp
 	<iostream>
 	<Primos.h>
 
-1591392789 source:c:\users\rubén felix\documents\3er-semestre\tareas\criba de eratóstenes\src\primos.cpp
+1592002359 source:c:\users\rubén felix\documents\3er-semestre\tareas\criba de eratóstenes\src\primos.cpp
 	"Primos.h"
 	<iostream>
+	<string>
+	<sstream>
 
-1591392937 c:\users\rubén felix\documents\3er-semestre\tareas\criba de eratóstenes\include\primos.h
+1592086370 c:\users\rubén felix\documents\3er-semestre\tareas\criba de eratóstenes\include\primos.h
 
