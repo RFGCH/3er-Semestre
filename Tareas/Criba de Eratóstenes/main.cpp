@@ -6,5 +6,6 @@ using namespace std;
 int main()
 {
     Primos a;
+
     return 0;
 }

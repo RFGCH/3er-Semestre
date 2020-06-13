@@ -3,12 +3,12 @@
 Afin::Afin(){
     srand(time(NULL));
 
-    alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ,.-( )abcdefghijklmnopqrstuvwxyz<>*1234567890";
+    alfabeto = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,.";
     generarclave();
 
 }
 Afin::Afin(int a, int b){
-    alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ,.-( )abcdefghijklmnopqrstuvwxyz<>*1234567890";
+    alfabeto = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,.";
     this -> b=b;
     this -> a=func.inv_mult(a,alfabeto.size());
 }

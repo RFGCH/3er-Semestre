@@ -2,7 +2,7 @@
 1587603452 source:c:\users\rubén felix\documents\3er-semestre\algoritmo_de_euclides\main.cpp
 	<iostream>
 
-1591662384 source:c:\users\rubén felix\documents\3er-semestre\practica de mcd\mcd_ejercicio_b\main.cpp
+1589074160 source:c:\users\rubén felix\documents\3er-semestre\practica de mcd\mcd_ejercicio_b\main.cpp
 	<iostream>
 	<Algoritmos.h>
 	<ctime>
@@ -12,7 +12,7 @@
 1588634564 c:\users\rubén felix\documents\3er-semestre\practica de mcd\mcd_ejercicio_b\include\algoritmos.h
 	<NTL/ZZ.h>
 
-1591662571 source:c:\users\rubén felix\documents\3er-semestre\practica de mcd\mcd_ejercicio_b\src\algoritmos.cpp
+1589642667 source:c:\users\rubén felix\documents\3er-semestre\practica de mcd\mcd_ejercicio_b\src\algoritmos.cpp
 	"Algoritmos.h"
 	<iostream>
 	<math.h>

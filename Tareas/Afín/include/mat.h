@@ -5,12 +5,12 @@
 class mat
 {
     public:
-
         mat();
         int mcd(int,int);
         int mod(int,int);
         int inv_mult(int,int);
 
+    private:
 };
 
 #endif // MAT_H

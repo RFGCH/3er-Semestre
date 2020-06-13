@@ -18,9 +18,9 @@ int main()
     float aux=0;
 */
     ZZ num1;
-    num1 = conv<ZZ>("1491404400");
+    num1 = conv<ZZ>("33");
     ZZ num2;
-    num2 = conv<ZZ>("1217312051");
+    num2 = conv<ZZ>("29");
 
 /*
     for(int i=0;i<1;i++){

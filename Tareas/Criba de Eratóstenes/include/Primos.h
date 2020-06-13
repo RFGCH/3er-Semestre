@@ -6,7 +6,9 @@ class Primos
 {
     public:
         Primos();
-        int siz = 1000;
+        virtual ~Primos();
+
+        int *lista;
 
 };
 
