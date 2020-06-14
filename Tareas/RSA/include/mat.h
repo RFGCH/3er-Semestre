@@ -12,7 +12,7 @@ class mat
         ZZ resto_chino(ZZ,ZZ,ZZ,ZZ);
         ZZ inv_mult(ZZ,ZZ);
         ZZ mcd(ZZ,ZZ);
-        ZZ pow(ZZ,ZZ);
+        ZZ pow(ZZ,ZZ,ZZ);
         ZZ mod(ZZ,ZZ);
 
 };

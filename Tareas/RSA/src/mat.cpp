@@ -1,4 +1,7 @@
 #include "mat.h"
+#include <iostream>
+
+using namespace std;
 
 mat::mat()
 {}
@@ -39,14 +42,16 @@ ZZ mat::mcd(ZZ m, ZZ n){
 
     return m;
 }
-ZZ mat::pow(ZZ base,ZZ potencia){
+ZZ mat::pow(ZZ base,ZZ potencia,ZZ n){
     ZZ aux = base;
     ZZ total = conv<ZZ>("1");
     while(potencia>0){
         if(potencia%2){
             total*=aux;
+            total=mod(total,n);
         }
         aux*=aux;
+        aux=mod(aux,n);
         potencia/=2;
     }
     return total;

@@ -10,9 +10,9 @@ using namespace NTL;
 int main()
 {
     ZZ a;
-    a=conv<ZZ>("23");
+    a=conv<ZZ>("5");
     ZZ b;
-    b=conv<ZZ>("26");
+    b=conv<ZZ>("252");
     inv_mult setr(a,b);
     cout << setr.get_result();
 

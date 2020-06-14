@@ -13,7 +13,7 @@ void RSA::generarclave()
 
     //asignamos a un string los primos
     ifstream leer;
-    leer.open("Primeros_1000_Primos.txt");//hay 2 archivos más, con los primeros 10000, 100000, 1000000 de primos.(cambiar el numero por esos de ser necesario)
+    leer.open("Primeros_1000000_Primos.txt");//hay 2 archivos más, con los primeros 10000, 100000, 1000000 de primos.(cambiar el numero por esos de ser necesario)
     string primos;
     getline(leer,primos);
     leer.close();
@@ -43,21 +43,20 @@ void RSA::generarclave()
 
     //clave publica
     publica=fun.inv_mult(privada,fi_n);
-
 }
 ZZ RSA::cifrar(string mensaje,ZZ clave,ZZ n){
 
-    //Posición  en alfabeto y convercion de int a ZZ
+    //Posición en alfabeto y convercion de int a ZZ
     ZZ pos = conv<ZZ>(alfabeto.find(mensaje));
 
     // Cifrado
-    return fun.mod(fun.pow(pos,clave),n);
+    return fun.pow(pos,clave,n);
 
 }
 string RSA::descifrar(ZZ mensaje){
 
     //Descifrado
-    ZZ pos = fun.mod(fun.pow(mensaje,privada),n);
+    ZZ pos = fun.pow(mensaje,privada,n);
 
     //Converción de ZZ a string
     ostringstream aux;
@@ -66,6 +65,7 @@ string RSA::descifrar(ZZ mensaje){
 
     return cifrado;
 }
+
 ZZ RSA::aleatorio(ZZ rand,string primos,ZZ tam){
 
         //escoje el primo en posición rand y lo guarda en base
