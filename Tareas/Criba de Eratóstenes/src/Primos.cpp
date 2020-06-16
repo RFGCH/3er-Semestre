@@ -53,6 +53,6 @@ Primos::Primos()
             a1 = "";
         }
 
-    ofstream texto("Primeros_1000_Primos.txt");
+    ofstream texto("Primeros_10000000_Primos.txt");
     texto<<a;
 }

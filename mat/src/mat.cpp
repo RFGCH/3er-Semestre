@@ -39,13 +39,16 @@ int mat::mcd(int m, int n){
 
     return m;
 }
-int mat::pow(int base,int potencia){
+int mat::pow(int base,int potencia,int n){
     int aux = base;
     int total = 1;
     while(potencia>0){
-        if(potencia%2)
+        if(potencia%2){
             total*=aux;
+            total=mod(total,n);
+        }
         aux*=aux;
+        aux = mod(aux,n);
         potencia/=2;
     }
     return total;

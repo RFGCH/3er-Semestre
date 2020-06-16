@@ -24,7 +24,6 @@ void RSA::generarclave()
     for(int i=0;i<tam;i++)
         if(primos[i]=='.')siz++;
 
-
     //escojemos de manera aleatoria 2 primos
     ZZ num_rand = fun.mod(conv<ZZ>(rand()),siz);
     ZZ privada1 = aleatorio(num_rand,primos,tam);
@@ -35,29 +34,26 @@ void RSA::generarclave()
     n=privada1*privada2;
     ZZ fi_n=(privada1-1)*(privada2-1);
 
-    //clave privada
-    num_rand = fun.mod(conv<ZZ>(rand()),siz);
-    privada=fun.mod(aleatorio(num_rand,primos,siz),n);
-    while(fun.mcd(privada,fi_n)!=1)
-        privada=fun.mod(aleatorio(num_rand,primos,siz),n);
-
     //clave publica
-    publica=fun.inv_mult(privada,fi_n);
+    num_rand = fun.mod(conv<ZZ>(rand()),siz);
+    publica=fun.mod(aleatorio(num_rand,primos,siz),n);
+    while(fun.mcd(publica,fi_n)!=1)
+        publica=fun.mod(aleatorio(num_rand,primos,siz),n);
+
+    //clave privada
+    privada=fun.inv_mult(publica,fi_n);
 }
 ZZ RSA::cifrar(string mensaje,ZZ clave,ZZ n){
 
     //Posición en alfabeto y convercion de int a ZZ
     ZZ pos = conv<ZZ>(alfabeto.find(mensaje));
-
     // Cifrado
     return fun.pow(pos,clave,n);
 
 }
 string RSA::descifrar(ZZ mensaje){
-
     //Descifrado
     ZZ pos = fun.pow(mensaje,privada,n);
-
     //Converción de ZZ a string
     ostringstream aux;
     aux << alfabeto[conv<int>(pos)];

@@ -5,9 +5,8 @@ using namespace std;
 int main()
 {
     RSA a;
-    RSA b;
-    ZZ cifrado = a.cifrar("g",b.publica,b.n);
+    ZZ aux = a.cifrar("g",a.publica,a.n);
 
-    cout << b.descifrar(cifrado);
+    cout << a.descifrar(aux);
     return 0;
 }

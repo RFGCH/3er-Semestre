@@ -6,7 +6,7 @@ class Primos
 {
     public:
         Primos();
-        int siz = 1000;
+        int siz = 10000000;
 
 };
 
