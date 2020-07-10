@@ -9,12 +9,12 @@ using namespace NTL;
 
 int main()
 {
+    mat ma;
     ZZ a;
-    a=conv<ZZ>("5");
+    a=conv<ZZ>("561");
     ZZ b;
-    b=conv<ZZ>("252");
-    inv_mult setr(a,b);
-    cout << setr.get_result();
+    b=conv<ZZ>("634");
+    cout << ma.inv_mult(a,b).at(2);
 
     return 0;
 }

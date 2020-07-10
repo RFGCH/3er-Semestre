@@ -8,16 +8,15 @@ using namespace std;
 
 Primos::Primos()
 {
-    //crear lista grande
+    int siz = 10;
 
+    //crear lista grande
     ostringstream o;
     for(int i=2;i<=siz;i++)
         o<<i<<".";
-
     string a = o.str();
 
     //leer int
-
     string a1,a2;
     int pos,cont,n1,n2;
 
@@ -52,7 +51,29 @@ Primos::Primos()
             //reestablecemos valores
             a1 = "";
         }
+//
+    //pos = n;
+    int posicion=2;
+    int numero=23;
 
+    int contador =0;
+    while(posicion){
+        if(a[contador]=='.'){
+            posicion--;
+        }
+        contador++;
+    }
+    posicion=contador;
+    while(a[contador++]!='.');
+
+    ostringstream ostr_aux;
+    ostr_aux<<numero;
+    string n=ostr_aux.str();
+    a.erase(posicion,contador-posicion-1);
+    a.insert(posicion,n);
+//
+    // n = c[pos]
+    cout << a << endl;
     ofstream texto("Primeros_10000000_Primos.txt");
     texto<<a;
 }

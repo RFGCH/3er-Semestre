@@ -17,12 +17,15 @@ class RSA
 {
     public:
 
-        RSA();
-        ZZ cifrar(string,ZZ,ZZ);
-        string descifrar(ZZ);
+        RSA(ZZ);
+        string cifrar(string,ZZ,ZZ);
+        string descifrar(string);
 
         ZZ aleatorio(ZZ,string,ZZ);
-        void generarclave();
+        void generarclave(ZZ);
+        string cifrar_str(ZZ,ZZ);
+        int descifrar_str(string,int);
+        ZZ tam(ZZ);
 
         string alfabeto;
         ZZ publica;

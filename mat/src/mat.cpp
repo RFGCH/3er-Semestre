@@ -1,5 +1,6 @@
 #include "mat.h"
-
+#include <iostream>
+using namespace std;
 mat::mat()
 {}
 int mat::resto_chino(int a1,int p1, int a2, int p2){
@@ -40,12 +41,16 @@ int mat::mcd(int m, int n){
     return m;
 }
 int mat::pow(int base,int potencia,int n){
+    base=mod(base,n);
+    potencia=mod(potencia,n);
     int aux = base;
     int total = 1;
+
     while(potencia>0){
         if(potencia%2){
             total*=aux;
             total=mod(total,n);
+        cout <<total << " " << aux << endl;
         }
         aux*=aux;
         aux = mod(aux,n);

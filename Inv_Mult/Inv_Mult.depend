@@ -1,11 +1,12 @@
 # depslib dependency file v1.0
-1592091720 source:c:\users\rubén felix\documents\3er-semestre\inv_mult\src\inv_mult.cpp
+1592442432 source:c:\users\rubén felix\documents\3er-semestre\inv_mult\src\inv_mult.cpp
 	"inv_mult.h"
 
-1592091739 c:\users\rubén felix\documents\3er-semestre\inv_mult\include\inv_mult.h
+1592442307 c:\users\rubén felix\documents\3er-semestre\inv_mult\include\inv_mult.h
 	<NTL/ZZ.h>
+	<vector>
 
-1592095203 source:c:\users\rubén felix\documents\3er-semestre\inv_mult\main.cpp
+1592442334 source:c:\users\rubén felix\documents\3er-semestre\inv_mult\main.cpp
 	<iostream>
 	<ctime>
 	<NTL/ZZ.h>
