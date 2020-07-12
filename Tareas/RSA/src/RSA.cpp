@@ -12,6 +12,7 @@ void RSA::generarclave(ZZ bits)
 
     srand(time(NULL));
     //escojemos de manera aleatoria 2 primos
+
     ZZ privada1 = fun.Primo_n_Bits(bits);
     ZZ privada2 = fun.Primo_n_Bits(bits);
     while(privada1==privada2)privada2 = fun.Primo_n_Bits(bits);
