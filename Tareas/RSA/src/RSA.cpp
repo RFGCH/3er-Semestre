@@ -9,29 +9,30 @@ RSA::RSA(ZZ bits)
 }
 void RSA::generarclave(ZZ bits)
 {
-
-    srand(time(NULL));
     //escojemos de manera aleatoria 2 primos
 
-    ZZ privada1 = fun.Primo_n_Bits(bits);
-    ZZ privada2 = fun.Primo_n_Bits(bits);
-    while(privada1==privada2)privada2 = fun.Primo_n_Bits(bits);
+    p = fun.Primo_n_Bits(bits);
+    q = fun.Primo_n_Bits(bits);
+    while(p==q)q = fun.Primo_n_Bits(bits);
 
     //calculamos las variables n y fi de n
-    n=privada1*privada2;
-    ZZ fi_n=(privada1-1)*(privada2-1);
+
+    n=p*q;
+    ZZ fi_n=(p-1)*(q-1);
 
     //clave publica
 
     publica=fun.mod(fun.Primo_n_Bits(bits),n);
-    while(publica==privada2||publica==privada2)publica=fun.mod(fun.Primo_n_Bits(bits),n);
+    while(publica==q||publica==q)publica=fun.mod(fun.Primo_n_Bits(bits),n);
     while(fun.mcd(publica,fi_n)!=1)
         publica=fun.mod(fun.Primo_n_Bits(bits),n);
-cout << "ahora chi" << endl;
+
     //clave privada
+
     privada=fun.inv_mult(publica,fi_n);
-    //cout << privada1 <<endl;
-    //cout << privada2 << endl;
+
+    //cout << p <<endl;
+    //cout << q << endl;
     //cout << n << endl;
     //cout << fi_n<<endl;
     //cout << publica << endl;
@@ -72,25 +73,32 @@ string RSA::cifrar(string mensaje,ZZ clave,ZZ n){
 }
 string RSA::descifrar(string mensaje){
 
-    ZZ tam_n=tam(n);
-    ZZ tam_total=conv<ZZ>(mensaje.size());
+    ZZ tam_n = tam(n);
+    ZZ tam_total = conv<ZZ>(mensaje.size());
     ZZ tam_alf = tam(conv<ZZ>(alfabeto.size()));
-    string contenedor1,contenedor2;
+
+    string contenedor1,contenedor2,str_aux;
+
     while(tam_total>0){
 
         //Separamos por subconjuntos de tamaño n
-        string str_aux = mensaje.substr(0,conv<int>(tam_n));
+
+        str_aux = mensaje.substr(0,conv<int>(tam_n));
         mensaje.erase(0,conv<int>(tam_n));
+
         //Lo pasamos a ZZ para hacer la potencia
+
         istringstream istr_aux(str_aux);
         ZZ zz_aux;
         istr_aux >> zz_aux;
-        zz_aux=fun.pow_mod(zz_aux,privada,n);
-        //Lo pasamos a string para guardarlo
-        str_aux = cifrar_str(zz_aux,tam_n-1);
+        zz_aux=pow_desc(zz_aux);
 
+        //Lo pasamos a string para guardarlo
+
+        str_aux = cifrar_str(zz_aux,tam_n-1);
         contenedor1+=str_aux;
         tam_total=tam_total-tam_n;
+
     }
 
     //Extraemos los bloques de tamaño tam_alf
@@ -103,32 +111,46 @@ string RSA::descifrar(string mensaje){
     return contenedor2;
 }
 ZZ RSA::tam(ZZ a){
-    ZZ cont;//Iterador de las cifras de a
-    if(a==conv<ZZ>("0"))cont = conv<ZZ>("1");//si es 0 tiene una cifra
-    else cont = conv<ZZ>("0");
+    if(a==conv<ZZ>("0"))return conv<ZZ>("1");//si es 0 tiene una cifra
+    ZZ cont = conv<ZZ>("0");
     while(a!=conv<ZZ>("0")){a/=10;cont++;}
     return cont;
 }
-string RSA::cifrar_str(ZZ pos,ZZ tam_p){
-    tam_p=tam_p-tam(pos);
-    string cadena;
-    while(tam_p!=conv<ZZ>("0")){
-        cadena.insert(0,"0");
-        tam_p--;
-    }
+string RSA::cifrar_str(ZZ numero,ZZ tam_p){
+
+    // Agregar 0 si el numero lo necesita
+
+    tam_p=tam_p-tam(numero);
+    string cadena(conv<int>(tam_p),'0');
+
+    // Agregar el valor del numero a la cadena
+
     ostringstream aux;
-    aux << pos;
+    aux << numero;
     cadena.append(aux.str());
+
     return cadena;
 }
 int RSA::descifrar_str(string mensaje,int tam_n){
 
+    // Desde tam_n escoje tam_alf numeros para pasarlos a un entero
+
     int tam_alf = conv<int>(tam(conv<ZZ>(alfabeto.size())));
     string str_aux = mensaje.substr(tam_n,tam_alf);
+
+    // Se pasa a entero la cadena substraida
 
     istringstream igstr_aux(str_aux);
     int pos;
     igstr_aux >> pos;
 
     return pos;
+}
+ZZ RSA::pow_desc(ZZ c){
+
+    ZZ expo_p=fun.mod(privada,p-1);
+    ZZ expo_q=fun.mod(privada,q-1);
+
+    return fun.resto_chino(fun.pow_mod(c,expo_p,p),p,fun.pow_mod(c,expo_q,q),q);
+
 }

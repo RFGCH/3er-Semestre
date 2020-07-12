@@ -25,6 +25,7 @@ class RSA
         void generarclave(ZZ);
         string cifrar_str(ZZ,ZZ);
         int descifrar_str(string,int);
+        ZZ pow_desc(ZZ);
         ZZ tam(ZZ);
 
         string alfabeto;
@@ -34,7 +35,10 @@ class RSA
         mat fun;
 
     private:
+
         ZZ privada;
+        ZZ p;
+        ZZ q;
 
 };
 

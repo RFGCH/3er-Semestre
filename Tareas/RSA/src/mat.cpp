@@ -193,7 +193,7 @@ int* mat::RC4(){
 
 //Generación de semilla
 
-    int semilla[5]={getheat()+gettime2(),gettime()};
+    int semilla[5]={getheat()+gettime2(),gettime()};//Temperatura+Segundos y Milisegundos
     semilla[2]=(semilla[0]*semilla[1])%256;
     semilla[3]=(semilla[0]+semilla[1])%256;
     semilla[4]=(semilla[2]+semilla[3])%256;
