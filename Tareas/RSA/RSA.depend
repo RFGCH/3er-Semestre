@@ -1,15 +1,14 @@
 # depslib dependency file v1.0
-1594571247 source:c:\users\rubén felix\documents\3er-semestre\tareas\rsa\main.cpp
+1594571753 source:c:\users\rubén felix\documents\3er-semestre\tareas\rsa\main.cpp
 	<iostream>
 	<RSA.h>
 	<mat.h>
 
-1594571292 source:c:\users\rubén felix\documents\3er-semestre\tareas\rsa\src\mat.cpp
+1594571737 source:c:\users\rubén felix\documents\3er-semestre\tareas\rsa\src\mat.cpp
 	"mat.h"
 
-1594571314 c:\users\rubén felix\documents\3er-semestre\tareas\rsa\include\mat.h
+1594572738 c:\users\rubén felix\documents\3er-semestre\tareas\rsa\include\mat.h
 	<windows.h>
-	<ctime>
 	<NTL/ZZ.h>
 
 1594570139 source:c:\users\rubén felix\documents\3er-semestre\tareas\rsa\src\rsa.cpp

@@ -1,4 +1,6 @@
 #include "mat.h"
+#include <iostream>
+using namespace std;
 
 mat::mat()
 {}
@@ -76,15 +78,15 @@ ZZ mat::Primo_n_Bits(ZZ bits){
     ZZ limite_superior = pow(conv<ZZ>(2),bits)-1;
     ZZ n = Random(conv<int>(bits));
     if(n%2==0)n+=1;
-    while(Miller_Rabin(n,k)==0){
+    for(int i=0;Miller_Rabin(n,k)==0;i++){
         n+=2;
         if(n>limite_superior)
-            n/=Random(8);
+            n/=2+Random(4);
     }
     return n;
 }
 bool mat::Miller_Test(ZZ d, ZZ n){
-    ZZ a = conv<ZZ>(2+Random(1024)%(n-4));
+    ZZ a = conv<ZZ>(2+Random(64)%(n-4));
     ZZ x = pow_mod(a,d,n);
 
     if(x==1||x==n-1)
@@ -191,7 +193,7 @@ int* mat::RC4(){
 
 //Generación de semilla
 
-    int semilla[5]={getheat(),gettime()};
+    int semilla[5]={getheat()+gettime2(),gettime()};
     semilla[2]=(semilla[0]*semilla[1])%256;
     semilla[3]=(semilla[0]+semilla[1])%256;
     semilla[4]=(semilla[2]+semilla[3])%256;
@@ -246,6 +248,12 @@ int mat::getheat(){
     return int(a)/65536;//Son los bits que siempre estan en 0 (16)
 }
 int mat::gettime(){
-    time_t t=time(0);
-    return t%256;
+    SYSTEMTIME t;
+    GetSystemTime(&t);
+    return int(t.wMilliseconds)%256;
+}
+int mat::gettime2(){
+    SYSTEMTIME t;
+    GetSystemTime(&t);
+    return int(t.wSecond)%256;
 }

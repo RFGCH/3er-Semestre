@@ -1,7 +1,6 @@
 #ifndef MAT_H
 #define MAT_H
-#include <windows.h>//temperatura
-#include <ctime>//tiempo
+#include <windows.h>//temperatura y tiempo
 #include <NTL/ZZ.h>
 
 using namespace NTL;
@@ -26,6 +25,7 @@ class mat
         int* Secuencia_cifrante(int* S);
         int getheat();
         int gettime();
+        int gettime2();
 
 };
 
