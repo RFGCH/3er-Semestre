@@ -28,9 +28,10 @@ void RSA::generarclave(ZZ bits)
         publica=fun.mod(fun.Primo_n_Bits(bits),n);
 
     //clave privada
-
+    cout << fun.pow_mod(publica,fi_n-2,fi_n)<<endl;
+    //privada=fun.pow_mod(publica,fi_n-1,n);
     privada=fun.inv_mult(publica,fi_n);
-
+cout << privada<<endl;
     //cout << p <<endl;
     //cout << q << endl;
     //cout << n << endl;
@@ -56,17 +57,26 @@ string RSA::cifrar(string mensaje,ZZ clave,ZZ n){
 
     while(total.size()>conv<ZZ>("0")){
 
-    //Extraemos el bloque de tamaño n
-    string str_aux = total.substr(0,conv<int>(tam_n)-1);
-    total.erase(0,conv<int>(tam_n)-1);
-    //Lo pasamos a ZZ para hacer la potencia
-    istringstream istr_aux(str_aux);
-    ZZ in;
-    istr_aux >> in;
-    in=fun.pow_mod(in,publica,n);
-    //Agregamos los 0 a cada bloque de ser necesario y se guarda
-    str_aux=cifrar_str(in,tam_n);
-    total2+=str_aux;
+        //Extraemos el bloque de tamaño n
+
+        string str_aux = total.substr(0,conv<int>(tam_n)-1);
+        total.erase(0,conv<int>(tam_n)-1);
+
+        //Lo pasamos a ZZ para hacer la potencia
+
+        istringstream istr_aux(str_aux);
+        ZZ in;
+        istr_aux >> in;
+
+        // Potencia
+
+        in=fun.pow_mod(in,publica,n);
+
+        //Agregamos los 0 a cada bloque de ser necesario y se guarda
+
+        str_aux=cifrar_str(in,tam_n);
+        total2+=str_aux;
+
     }
     return total2;
 
@@ -112,7 +122,7 @@ string RSA::descifrar(string mensaje){
 }
 ZZ RSA::tam(ZZ a){
     if(a==conv<ZZ>("0"))return conv<ZZ>("1");//si es 0 tiene una cifra
-    ZZ cont = conv<ZZ>("0");
+    ZZ cont=conv<ZZ>("0");
     while(a!=conv<ZZ>("0")){a/=10;cont++;}
     return cont;
 }
