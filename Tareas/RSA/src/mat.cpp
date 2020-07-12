@@ -1,11 +1,4 @@
 #include "mat.h"
-#include <string>
-#include <sstream>
-#include <fstream>
-#include <time.h>
-#include <stdlib.h>
-
-using namespace std;
 
 mat::mat()
 {}
@@ -80,22 +73,18 @@ ZZ mat::mod(ZZ a,ZZ b){
 }
 ZZ mat::Primo_n_Bits(ZZ bits){
     ZZ k =conv<ZZ>(200);  // Number of iterations
-    srand(time(NULL));
-    ZZ limite_inferior = pow(conv<ZZ>(2),bits)/2;
     ZZ limite_superior = pow(conv<ZZ>(2),bits)-1;
-    ZZ n = limite_superior;
-    n-=(n/(conv<ZZ>(rand())+2)); // Se le suma desde su mitad (con rand = 0) n seria solo 3/4 de limite_superior
+    ZZ n = Random(conv<int>(bits));
     if(n%2==0)n+=1;
     while(Miller_Rabin(n,k)==0){
         n+=2;
         if(n>limite_superior)
-            n-=limite_inferior;
+            n/=Random(8);
     }
-    cout << n << endl;
     return n;
 }
 bool mat::Miller_Test(ZZ d, ZZ n){
-    ZZ a = conv<ZZ>(2+rand())%(n-4);
+    ZZ a = conv<ZZ>(2+Random(1024)%(n-4));
     ZZ x = pow_mod(a,d,n);
 
     if(x==1||x==n-1)
@@ -123,4 +112,140 @@ bool mat::Miller_Rabin(ZZ n, ZZ k){
     return true;
 
 }
+ZZ mat::Random(int bits){
+    int* Vec=DES_Test(RC4(),bits);
+    ZZ total=conv<ZZ>(1);
+    ZZ aux=conv<ZZ>(1);
+    for(int i=0;i<bits;i++){
+       if(Vec[i]){
+            total+=aux;
+       }
+       aux*=2;
+    }
+    if(total<aux/2)total+=aux/2;
+    return total;
+}
+int* mat::DES_Test(int* Vec64,int bits)
+{
+    //Inicializamos las tablas de 56 y 48. Junto a la tabla de desplazamiento
 
+    int bits_Tabla_1=56;
+    int bits_Tabla_2=48;
+
+    int Tabla_PC_1_56bits[bits_Tabla_1]={57,49,41,33,25,17,9,1,58,50,42,34,26,18,10,2,59,51,43,35,27,19,11,3,60,52,44,36,63,55,47,39,31,23,15,7,62,54,46,38,30,22,14,6,61,53,45,37,29,21,13,5,28,20,12,4};
+    int Tabla_PC_2_48bits[bits_Tabla_2]={14,17,11,24,1,5,3,28,15,6,21,10,23,19,12,4,26,8,16,7,27,20,13,2,41,52,31,37,47,55,30,40,51,45,33,48,44,49,39,56,34,53,46,42,50,36,29,32};
+    int Tabla_desplazamientos[16]={1,1,2,2,2,2,2,2,1,2,2,2,2,2,2,1};
+
+    //Creamos el vector de 56 bits con la semilla
+
+    int Vec56[bits_Tabla_1];
+    for(int i=0;i<bits_Tabla_1;i++)
+        Vec56[i]=Vec64[Tabla_PC_1_56bits[i]-1];
+
+    // Separamos en 2 el vector de 56 bits
+
+    int Vec28_1[28],Vec28_2[28];
+    for(int i=0;i<bits_Tabla_1/2;i++){Vec28_1[i]=Vec56[i];}
+    for(int i=bits_Tabla_1/2,j=0;i<bits_Tabla_1;i++,j++){Vec28_2[j]=Vec56[i];}
+
+    // Llenamos el vector final con las permutaciones con la tabla 2
+
+    int* Vec=new int[bits];
+    for(int j=0,k=0;j<bits;j+=48,k++){
+
+        //Creamos un aux que nos servira para reemplazar con el vector de 48 bits
+
+//Desplazamiento a la izquierda
+        int aux_Vec56[bits_Tabla_1];
+        for(int i=0;i<28;i++)
+            aux_Vec56[i]=Vec28_1[(i+Tabla_desplazamientos[k%16])%28];
+        for(int i=0;i<28;i++)Vec28_1[i]=aux_Vec56[i];
+//Desplazamiento a la derecha
+        for(int i=28;i<56;i++)
+            aux_Vec56[i]=Vec28_2[(i-Tabla_desplazamientos[k%16])%28];
+        for(int i=28;i<56;i++)Vec28_2[i-28]=aux_Vec56[i];
+
+        //Creamos y asignamos valores a el vector de 48 bits
+
+        int Vec48[bits_Tabla_2];
+        for(int i=0;i<bits_Tabla_2;i++)
+            Vec48[i]=aux_Vec56[Tabla_PC_2_48bits[i]-1];
+
+        //Llenamos el vector final con el de 48, hasta que se llenen los bits
+
+        for(int i=0;i<48&&i+j<bits;i++){
+            Vec[i+j]=Vec48[i];
+        }
+    }
+    return Vec;
+}
+int* mat::RC4(){
+
+    int bitsS=256;
+    int bitsK=40;
+
+//Generación de S
+
+    int* S=new int[bitsS];
+    for(int i=0;i<bitsS;i++)S[i]=i;
+
+//Generación de semilla
+
+    int semilla[5]={getheat(),gettime()};
+    semilla[2]=(semilla[0]*semilla[1])%256;
+    semilla[3]=(semilla[0]+semilla[1])%256;
+    semilla[4]=(semilla[2]+semilla[3])%256;
+
+//Generación de K
+
+    int K[bitsK];
+    int save;
+    for(int i=0,j=0;i<bitsK;i++){
+        if(i%8==0)save=semilla[j++];
+        K[i]=save%2;
+        save/=2;
+    }
+
+//Permutaciones de S
+
+    int f=0;
+    for(int i=0;i<bitsS;i++){
+        f=(f+S[i]+K[i%bitsK])%bitsS;
+        swap(S[i],S[f]);
+    }
+    return Secuencia_cifrante(S);
+}
+int* mat::Secuencia_cifrante(int* S){
+
+    int bits = 64;
+    int i,f,t,save;
+    i=f=0;
+
+    int *K=new int[bits];
+
+    for(int k=0;k<bits/8;k++){
+
+        i=(i+1)%256;
+        f=(f+S[i])%256;
+        swap(S[i],S[f]);
+        t=(S[i]+S[f])%256;
+
+        save=S[t];
+
+        for(int j=0;j<8;j++){
+            K[j+k*8]=save%2;
+            save/=2;
+        }
+    }
+
+    return K;
+}
+
+int mat::getheat(){
+    HANDLE a = GetProcessHeap();
+    return int(a)/65536;//Son los bits que siempre estan en 0 (16)
+}
+int mat::gettime(){
+    time_t t=time(0);
+    return t%256;
+}

@@ -1,10 +1,10 @@
 #ifndef MAT_H
 #define MAT_H
+#include <windows.h>//temperatura
+#include <ctime>//tiempo
 #include <NTL/ZZ.h>
-#include <vector>
 
 using namespace NTL;
-using namespace std;
 
 class mat
 {
@@ -20,6 +20,12 @@ class mat
         ZZ Primo_n_Bits(ZZ);
         bool Miller_Rabin(ZZ,ZZ);
         bool Miller_Test(ZZ,ZZ);
+        ZZ Random(int);
+        int* DES_Test(int*,int);
+        int* RC4();
+        int* Secuencia_cifrante(int* S);
+        int getheat();
+        int gettime();
 
 };
 

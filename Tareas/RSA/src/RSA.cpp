@@ -131,4 +131,3 @@ int RSA::descifrar_str(string mensaje,int tam_n){
 
     return pos;
 }
-
