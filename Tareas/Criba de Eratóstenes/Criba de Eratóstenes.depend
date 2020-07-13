@@ -3,11 +3,12 @@
 	<iostream>
 	<Primos.h>
 
-1592002359 source:c:\users\rubén felix\documents\3er-semestre\tareas\criba de eratóstenes\src\primos.cpp
+1592969191 source:c:\users\rubén felix\documents\3er-semestre\tareas\criba de eratóstenes\src\primos.cpp
 	"Primos.h"
 	<iostream>
 	<string>
 	<sstream>
+	<fstream>
 
 1592154357 c:\users\rubén felix\documents\3er-semestre\tareas\criba de eratóstenes\include\primos.h
 

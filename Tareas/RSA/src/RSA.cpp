@@ -28,10 +28,9 @@ void RSA::generarclave(ZZ bits)
         publica=fun.mod(fun.Primo_n_Bits(bits),n);
 
     //clave privada
-    cout << fun.pow_mod(publica,fi_n-2,fi_n)<<endl;
-    //privada=fun.pow_mod(publica,fi_n-1,n);
+
     privada=fun.inv_mult(publica,fi_n);
-cout << privada<<endl;
+
     //cout << p <<endl;
     //cout << q << endl;
     //cout << n << endl;
@@ -40,6 +39,18 @@ cout << privada<<endl;
     //cout <<privada << endl;
 
 }
+string RSA::cifrar_Firma_Digital(string mensaje,ZZ clave,ZZ nr){
+    mensaje = cifrar(mensaje,publica,n);
+    mensaje = cifrar(mensaje,publica,n);//Rubrica
+    return cifrar(mensaje,publica,n);
+}
+string RSA::descifrar_Firma_Digital(string mensaje,ZZ clave,ZZ nr){
+
+    mensaje = descifrar(mensaje,privada,n);
+    mensaje = descifrar(mensaje,privada,n);
+    return descifrar(mensaje,privada,n);
+}
+
 string RSA::cifrar(string mensaje,ZZ clave,ZZ n){
     ZZ tam_n = tam(n);
     ZZ tam_alf = tam(conv<ZZ>(alfabeto.size()));
@@ -54,7 +65,6 @@ string RSA::cifrar(string mensaje,ZZ clave,ZZ n){
     //Agregar basura al final del string de ser necesario
     for(ZZ i=fun.mod(tam_total,tam_n-1);i<tam_n-1;i++)
         total.insert(total.size(),"0");
-
     while(total.size()>conv<ZZ>("0")){
 
         //Extraemos el bloque de tamaño n
@@ -70,10 +80,8 @@ string RSA::cifrar(string mensaje,ZZ clave,ZZ n){
 
         // Potencia
 
-        in=fun.pow_mod(in,publica,n);
-
+        in=fun.pow_mod(in,clave,n);
         //Agregamos los 0 a cada bloque de ser necesario y se guarda
-
         str_aux=cifrar_str(in,tam_n);
         total2+=str_aux;
 
@@ -81,43 +89,43 @@ string RSA::cifrar(string mensaje,ZZ clave,ZZ n){
     return total2;
 
 }
-string RSA::descifrar(string mensaje){
+string RSA::descifrar(string mensaje,ZZ clave, ZZ n){
 
     ZZ tam_n = tam(n);
-    ZZ tam_total = conv<ZZ>(mensaje.size());
     ZZ tam_alf = tam(conv<ZZ>(alfabeto.size()));
 
-    string contenedor1,contenedor2,str_aux;
+    for(int i = mensaje.size();i>0;i--){
+            if(mensaje[i]=='A')
+                mensaje.replace(i,1,"0");
+    }
 
+    ZZ tam_total = conv<ZZ>(mensaje.size());
+
+    string contenedor1,contenedor2,str_aux;
     while(tam_total>0){
 
         //Separamos por subconjuntos de tamaño n
 
         str_aux = mensaje.substr(0,conv<int>(tam_n));
         mensaje.erase(0,conv<int>(tam_n));
-
         //Lo pasamos a ZZ para hacer la potencia
-
         istringstream istr_aux(str_aux);
         ZZ zz_aux;
+        cout << str_aux<<endl;
         istr_aux >> zz_aux;
-        zz_aux=pow_desc(zz_aux);
-
+        zz_aux=pow_desc(zz_aux,clave);
         //Lo pasamos a string para guardarlo
-
         str_aux = cifrar_str(zz_aux,tam_n-1);
         contenedor1+=str_aux;
         tam_total=tam_total-tam_n;
 
     }
-
     //Extraemos los bloques de tamaño tam_alf
     tam_total = conv<ZZ>(contenedor1.size());
     for(int i=0;i<tam_total;i+=conv<int>(tam_alf)){
         int pos = descifrar_str(contenedor1,i);
         contenedor2 += alfabeto[pos];
     }
-
     return contenedor2;
 }
 ZZ RSA::tam(ZZ a){
@@ -131,6 +139,7 @@ string RSA::cifrar_str(ZZ numero,ZZ tam_p){
     // Agregar 0 si el numero lo necesita
 
     tam_p=tam_p-tam(numero);
+    if(tam_p<0)tam_p=-tam_p;
     string cadena(conv<int>(tam_p),'0');
 
     // Agregar el valor del numero a la cadena
@@ -156,7 +165,7 @@ int RSA::descifrar_str(string mensaje,int tam_n){
 
     return pos;
 }
-ZZ RSA::pow_desc(ZZ c){
+ZZ RSA::pow_desc(ZZ c,ZZ privada){
 
     ZZ expo_p=fun.mod(privada,p-1);
     ZZ expo_q=fun.mod(privada,q-1);

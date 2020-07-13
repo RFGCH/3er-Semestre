@@ -18,14 +18,16 @@ class RSA
     public:
 
         RSA(ZZ);
+        string cifrar_Firma_Digital(string,ZZ,ZZ);
         string cifrar(string,ZZ,ZZ);
-        string descifrar(string);
+        string descifrar_Firma_Digital(string,ZZ,ZZ);
+        string descifrar(string,ZZ,ZZ);
 
         ZZ aleatorio(ZZ,string,ZZ);
         void generarclave(ZZ);
         string cifrar_str(ZZ,ZZ);
         int descifrar_str(string,int);
-        ZZ pow_desc(ZZ);
+        ZZ pow_desc(ZZ,ZZ);
         ZZ tam(ZZ);
 
         string alfabeto;
