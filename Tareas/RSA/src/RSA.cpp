@@ -40,14 +40,14 @@ void RSA::generarclave(ZZ bits)
 
 }
 string RSA::cifrar_Firma_Digital(string mensaje,ZZ clave,ZZ nr){
-    mensaje = cifrar(mensaje,publica,n);
-    mensaje = cifrar(mensaje,publica,n);//Rubrica
-    return cifrar(mensaje,publica,n);
+    mensaje = cifrar(mensaje,clave,n);
+    mensaje = cifrar(mensaje,privada,n);//Rubrica
+    return cifrar(mensaje,clave,n);
 }
 string RSA::descifrar_Firma_Digital(string mensaje,ZZ clave,ZZ nr){
 
     mensaje = descifrar(mensaje,privada,n);
-    mensaje = descifrar(mensaje,privada,n);
+    mensaje = descifrar(mensaje,clave,n);
     return descifrar(mensaje,privada,n);
 }
 
@@ -111,7 +111,6 @@ string RSA::descifrar(string mensaje,ZZ clave, ZZ n){
         //Lo pasamos a ZZ para hacer la potencia
         istringstream istr_aux(str_aux);
         ZZ zz_aux;
-        cout << str_aux<<endl;
         istr_aux >> zz_aux;
         zz_aux=pow_desc(zz_aux,clave);
         //Lo pasamos a string para guardarlo

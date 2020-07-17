@@ -5,6 +5,6 @@ using namespace std;
 int main()
 {
     mat a;
-    cout << a.pow(850,6677,77);
+    cout << a.mcd(70,84);
     return 0;
 }

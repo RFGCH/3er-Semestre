@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1592090454 source:c:\users\rubén felix\documents\3er-semestre\mat\src\mat.cpp
+1593565603 source:c:\users\rubén felix\documents\3er-semestre\mat\src\mat.cpp
 	"mat.h"
+	<iostream>
 
 1593565464 c:\users\rubén felix\documents\3er-semestre\mat\include\mat.h
 
